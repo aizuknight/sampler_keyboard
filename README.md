@@ -19,6 +19,9 @@
 # How to Build Firmware
 > [!NOTE]
 > **If you are going to build the firmware on CentOS in AINS (University of Aizu), go straight to step 2.**
+
+> [!TIP]
+> **I recommend you to build the firmware on CentOS in the AINS (University of Aizu) if you are a beginner. You can SSH into CentOS server just by `ssh s13XXXXX@linsv.u-aizu.ac.jp` while connected to the AINS network.**
 ## 1. Prepare Docker Engine
 If Docker is already installed and it can be run without `sudo`, go straight to step 2. The build script uses Docker. If Docker is not installed yet, install Docker Engine on your Linux system (including WSL):
 ```bash
