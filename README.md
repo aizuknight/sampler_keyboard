@@ -17,6 +17,8 @@
 | Base plate (3mm thick) | 1 | Buy an acrylic panel at [hazaiya](https://www.hazaiya.co.jp/) and cut by yourself |
 
 # How to Build Firmware
+> [!NOTE]
+> **If you are going to build the firmware on CentOS in AINS (University of Aizu), go straight to step 2.**
 ## 1. Prepare Docker Engine
 If Docker is already installed, go straight to step 2. The build script uses Docker. If not, install Docker Engine on your Linux system (including WSL):
 ```bash
@@ -38,14 +40,12 @@ After cloning the repository, run the command below from the repository root (Yo
 > The first build requires internet access and takes longer because the script automatically builds the QMK container image (about 4 minutes with Docker on Intel Core i5-12400). Later builds reuse the image.
 ### Option 1: Build the Default Keymap
 ```bash
-cd firmware/
-./build.sh
+./firmware/build.sh
 ```
 The built firmware is located at `firmware/output/sampler_keyboard_default.uf2`.
 ### Option 2: Build Firmware with VIA Compatibility
 ```bash
-cd firmware/
-./build.sh via
+./firmware/build.sh via
 ```
 The built firmware is located at `firmware/output/sampler_keyboard_via.uf2`.
 

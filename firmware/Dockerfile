@@ -1,4 +1,4 @@
-FROM qmkfm/qmk_cli:1.2.0
+FROM docker.io/qmkfm/qmk_cli:1.2.0
 
 ENV QMK_FIRMWARE_VERSION=0.31.11
 
