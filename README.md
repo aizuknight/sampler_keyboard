@@ -20,11 +20,18 @@
 > [!NOTE]
 > **If you are going to build the firmware on CentOS in AINS (University of Aizu), go straight to step 2.**
 ## 1. Prepare Docker Engine
-If Docker is already installed, go straight to step 2. The build script uses Docker. If not, install Docker Engine on your Linux system (including WSL):
+If Docker is already installed and it can be run without `sudo`, go straight to step 2. The build script uses Docker. If Docker is not installed yet, install Docker Engine on your Linux system (including WSL):
 ```bash
 curl -fsSL https://get.docker.com | sudo sh
 ```
-This command requires `curl` and permission to install system software.
+If `docker` cannot be run without `sudo`, add your user to `docker` group:
+```bash
+sudo usermod -aG docker $USER
+```
+> [!NOTE]
+> For the user group changes to take effect, you will need to log out. You might need to reboot your computer instead of logging out for the user group changes to take effect.
+
+These commands require `curl` and permission to install system software.
 ## 2. Clone Repository
 ```
 git clone https://github.com/aizuknight/sampler_keyboard.git
