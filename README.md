@@ -15,3 +15,41 @@
 | M2 screw (8mm) | 4 | https://shop.yushakobo.jp/products/8006?variant=47615864963303, https://shop.yushakobo.jp/products/a0800n2?variant=37665433026721 |
 | Switch plate (1mm thick) | 1 | Buy an acrylic panel at [hazaiya](https://www.hazaiya.co.jp/) and cut by yourself |
 | Base plate (3mm thick) | 1 | Buy an acrylic panel at [hazaiya](https://www.hazaiya.co.jp/) and cut by yourself |
+
+# How to Build Firmware
+## 1. Prepare Docker Engine
+If Docker is already installed, go straight to step 2. The build script uses Docker. If not, install Docker Engine on your Linux system (including WSL):
+```bash
+curl -fsSL https://get.docker.com | sudo sh
+```
+This command requires `curl` and permission to install system software.
+## 2. Clone Repository
+```
+git clone https://github.com/aizuknight/sampler_keyboard.git
+cd sampler_keyboard/
+```
+This command requires `git` to be installed.
+## 3. Build Firmware
+After cloning the repository, run the command below from the repository root (You should be there already) for your chosen keymap. The script prepares the build environment and compiles the firmware.
+> [!WARNING]
+> You need at least 6.16 GB of disk space with Docker.
+
+> [!NOTE]
+> The first build requires internet access and takes longer because the script automatically builds the QMK container image (about 4 minutes with Docker on Intel Core i5-12400). Later builds reuse the image.
+### Option 1: Build the Default Keymap
+```bash
+cd firmware/
+./build.sh
+```
+The built firmware is located at `firmware/output/sampler_keyboard_default.uf2`.
+### Option 2: Build Firmware with VIA Compatibility
+```bash
+cd firmware/
+./build.sh via
+```
+The built firmware is located at `firmware/output/sampler_keyboard_via.uf2`.
+
+# How to Install Firmware to The Keyboard
+1. Connect Seeed Studio XIAO RP2040 to your computer with USB cable **while pressing reset button on the Seeed Studio XIAO RP2040**.
+2. Release the reset button on the Seeed Studio XIAO RP2040.
+3. Drag and drop the firmware to the USB mass strage device named "RPI-RP2".
