@@ -64,6 +64,9 @@ After cloning the repository, run the command below from the repository root (Yo
 > [!NOTE]
 > The first build requires internet access and takes longer because the script automatically builds the QMK container image (about 4 minutes with Docker on Intel Core i5-12400). Later builds reuse the image.
 
+> [!NOTE]
+> When you build the firmware on CentOS in the AINS (University of Aizu), you may build the QMK container image all the time unless you frequently build the firmware. Since the script uses `/tmp/` directory to store the QMK container image (9.6 GB), the stored data will be deleted without frequent access. If you do not like that, you can manually set the location to store the QMK container image with environment variable `PODMAN_STRAGE_DIRECTORY` (Advanced).
+
 #### Option 1: Build the Default Keymap
 
 ```bash
